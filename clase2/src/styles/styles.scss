@@ -34,6 +34,16 @@ body {
 
     &-body {
       padding: 10px;
+      text-align: center;
+
+      .card-price {
+        border-radius: 5px;
+        border: 1px solid royalblue;
+        color: royalblue;
+        display: inline-block;
+        padding: 5px;
+        text-align: center;
+      }
     }
   }
 }
