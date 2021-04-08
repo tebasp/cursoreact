@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./Pages/Home";
 import Course from "./Pages/Course";
-import Courses from "./Organisms/Courses";
+import Courses from "./Pages/Courses";
 import Form from "./Pages/Form";
 import Header from "./Organisms/Header";
 import Users from "./Pages/Users";
