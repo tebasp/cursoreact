@@ -1,9 +1,8 @@
-import Curso from "./Curso.jsx";
-import Formulario from "./Formulario";
-import "./styles/styles.scss";
+import React from "react";
 
 const cursos = [
   {
+    id: 1,
     title: "Node",
     image:
       "https://edteam-media.s3.amazonaws.com/courses/medium/7f3ac3ee-a5d5-4ce0-be38-4521dc70b011.png",
@@ -11,6 +10,7 @@ const cursos = [
     professor: "Esteban Palomeque",
   },
   {
+    id: 2,
     title: "Java Script",
     image:
       "https://edteam-media.s3.amazonaws.com/courses/medium/7f3ac3ee-a5d5-4ce0-be38-4521dc70b011.png",
@@ -18,6 +18,7 @@ const cursos = [
     professor: "Tebas Palo",
   },
   {
+    id: 3,
     title: "Vue",
     image:
       "https://edteam-media.s3.amazonaws.com/courses/medium/7f3ac3ee-a5d5-4ce0-be38-4521dc70b011.png",
@@ -25,6 +26,7 @@ const cursos = [
     professor: "Violeta Palomeque",
   },
   {
+    id: 4,
     title: "React",
     image:
       "https://edteam-media.s3.amazonaws.com/courses/medium/7f3ac3ee-a5d5-4ce0-be38-4521dc70b011.png",
@@ -33,28 +35,24 @@ const cursos = [
   },
 ];
 
-function App() {
+const Course = ({ match }) => {
+  // [0] por que filter retorna un array
+  const currentCourse = cursos.filter(
+    (curso) => curso.id === parseInt(match.params.id)
+  )[0];
+
+  console.log("curso", currentCourse);
+
   return (
-    <>
-      <div className="container">
-        <h1>This is the title</h1>
-        <div className="row">
-          {cursos.map((curso) => (
-            <Curso
-              title={curso.title}
-              image={curso.image}
-              price={curso.price}
-              professor={curso.professor}
-            />
-          ))}
-        </div>
-
-        <div>
-          <Formulario />
-        </div>
+    <div className="container">
+      <div className="row">
+        <h2>{currentCourse.title}</h2>
+        <img src={currentCourse.image} alt={currentCourse.title} />
+        <div>{currentCourse.professor}</div>
+        <div>{currentCourse.price}</div>
       </div>
-    </>
+    </div>
   );
-}
+};
 
-export default App;
+export default Course;
